@@ -4,7 +4,13 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "plugins": ["tailwindcss", "simple-import-sort"],
-      "extends": ["plugin:tailwindcss/recommended", "airbnb", "airbnb-typescript", "plugin:prettier/recommended"],
+      "extends": [
+        "plugin:tailwindcss/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:prettier/recommended",
+        "plugin:react/jsx-runtime"
+      ],
       "parserOptions": {
         "project": "./tsconfig.json"
       },
