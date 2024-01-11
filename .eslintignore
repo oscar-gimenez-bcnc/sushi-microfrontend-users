@@ -1,1 +1,3 @@
 /__mocks__
+cypress/**
+cypress.config.ts
