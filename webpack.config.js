@@ -2,6 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const { dependencies } = require('./package.json');
 
 module.exports = {
   name: 'SushiMicroFrontendUsers',
@@ -50,6 +51,12 @@ module.exports = {
       remotes: {},
       exposes: {
         './SushiMicroFrontendUsers': './src/App.tsx'
+      },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: dependencies.react
+        }
       }
     })
   ]

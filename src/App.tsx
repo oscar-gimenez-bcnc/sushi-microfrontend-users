@@ -2,7 +2,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import GenericError from './components/GenericError';
 import UsersTable from './components/UsersTable';
 
-function App() {
+const App = () => {
   return (
     <div className="container mx-auto">
       <ErrorBoundary fallback={<GenericError />}>
@@ -10,6 +10,6 @@ function App() {
       </ErrorBoundary>
     </div>
   );
-}
+};
 
 export default App;
