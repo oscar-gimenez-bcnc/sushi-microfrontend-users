@@ -1,5 +1,5 @@
 import { IUser } from '../../domain/models/IUser';
-import { IUserRepository } from '../../domain/repository/IUserRepository';
+import { IUserRepository } from '../../domain/ports/IUserRepository';
 
 export function createHardcodedUserRepository(): IUserRepository {
   async function list(): Promise<IUser[]> {

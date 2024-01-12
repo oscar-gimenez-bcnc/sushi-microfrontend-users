@@ -1,5 +1,5 @@
 import { IUser } from '../../domain/models/IUser';
-import { IUserRepository } from '../../domain/repository/IUserRepository';
+import { IUserRepository } from '../../domain/ports/IUserRepository';
 
 export function createApiUserRepository(): IUserRepository {
   const cache: Map<number, IUser> = new Map();
