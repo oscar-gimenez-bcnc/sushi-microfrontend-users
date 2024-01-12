@@ -4,6 +4,8 @@ import { createApiUserRepository } from '../../../infrastructure/dataSource/ApiU
 import { createHardcodedUserRepository } from '../../../infrastructure/dataSource/HardcodedUserRepository';
 import { GlobalContext } from '../../context/GlobalContext';
 import { DataSources } from '../../helpers/enums/enums';
+import { IUserRepository } from '../../../domain/ports/IUserRepository';
+import { createBrokenRepository } from '../../../infrastructure/dataSource/BrokenRepository';
 
 const useMainLayout = () => {
   const { dataSource, errorMessage, setErrorMessage, setUsers } = useContext(GlobalContext);
@@ -11,13 +13,20 @@ const useMainLayout = () => {
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
       try {
-        const userRepository =
-          dataSource === DataSources.EXTERNAL ? createApiUserRepository() : createHardcodedUserRepository();
+        const userRepositoryMap: { [key in DataSources]: () => IUserRepository } = {
+          [DataSources.EXTERNAL]: createApiUserRepository,
+          [DataSources.INTERNAL]: createHardcodedUserRepository,
+          [DataSources.BROKEN]: createBrokenRepository
+        };
+
+        const userRepository = userRepositoryMap[dataSource as DataSources]();
+
         const usersFetched = await listUsers(userRepository)();
         if (usersFetched) setUsers(usersFetched);
       } catch (err) {
         setUsers([]);
-        setErrorMessage('Oops! We have difficulties to show this data.');
+        const message = err instanceof Error ? err.message : 'No information provided.';
+        setErrorMessage(`Oops! We have difficulties to show this data. ${message}`);
       }
     };
     dataFetcher();

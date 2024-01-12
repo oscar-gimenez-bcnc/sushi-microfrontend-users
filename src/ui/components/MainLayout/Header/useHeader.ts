@@ -7,7 +7,15 @@ const useHeader = () => {
 
   const handleChangeDataSource = () => {
     setErrorMessage(undefined);
-    setDataSource(dataSource === DataSources.EXTERNAL ? DataSources.INTERNAL : DataSources.EXTERNAL);
+    const nextDataSourceMap: { [key in DataSources]: DataSources } = {
+      [DataSources.EXTERNAL]: DataSources.INTERNAL,
+      [DataSources.INTERNAL]: DataSources.BROKEN,
+      [DataSources.BROKEN]: DataSources.EXTERNAL
+    };
+
+    const nextDataSource = nextDataSourceMap[dataSource as DataSources];
+
+    setDataSource(nextDataSource);
   };
 
   const handleChangeDownloadMethod = () => {
