@@ -1,12 +1,15 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import GenericError from './ui/components/GenericError';
-import UsersTable from './ui/components/UsersTable';
+import MainLayout from './ui/components/MainLayout';
+import { GlobalProvider } from './ui/context/GlobalContext';
 
 const App = () => {
   return (
     <div className="container mx-auto">
       <ErrorBoundary fallback={<GenericError />}>
-        <UsersTable />
+        <GlobalProvider>
+          <MainLayout />
+        </GlobalProvider>
       </ErrorBoundary>
     </div>
   );
