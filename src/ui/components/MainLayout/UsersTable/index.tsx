@@ -1,4 +1,6 @@
 import { IUser } from '../../../../domain/models/IUser';
+import IconDownload from '../../shared/icons/IconDownload';
+import IconWarning from '../../shared/icons/IconWarning';
 import useUsersTable from './useUsersTable';
 
 const UsersTable: React.FC = () => {
@@ -12,19 +14,7 @@ const UsersTable: React.FC = () => {
       <div className="divider divider-accent" />
       {errorMessage ? (
         <div role="alert" className="alert alert-warning">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-            />
-          </svg>
+          <IconWarning />
           <span>{errorMessage}</span>
           <button type="button" className="btn btn-neutral" onClick={() => handleOnErrorClick()}>
             Try again
@@ -74,20 +64,7 @@ const UsersTable: React.FC = () => {
                           className="btn btn-ghost btn-xs "
                           onClick={() => handleDownloadClick(user)}
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="h-6 w-6 py-1"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                            />
-                          </svg>
+                          <IconDownload />
                         </button>
                       </td>
                     </tr>
