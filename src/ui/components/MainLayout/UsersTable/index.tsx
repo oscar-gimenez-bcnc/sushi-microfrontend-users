@@ -1,7 +1,12 @@
 import { IUser } from '../../../../domain/models/IUser';
 import IconDownload from '../../shared/icons/IconDownload';
 import IconWarning from '../../shared/icons/IconWarning';
+import AddressCell from './AddressCell';
+import CompanyCell from './CompanyCell';
+import NameCell from './NameCell';
+import TableHead from './TableHead';
 import useUsersTable from './useUsersTable';
+import LabelCell from './LabelCell';
 
 const UsersTable: React.FC = () => {
   const {
@@ -23,19 +28,7 @@ const UsersTable: React.FC = () => {
       ) : (
         <div className="overflow-x-auto">
           <table className="table table-md">
-            <thead>
-              <tr>
-                <th aria-label="Table header Id" />
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Website</th>
-                <th>Company</th>
-                <th aria-label="Table header export button" />
-              </tr>
-            </thead>
+            <TableHead />
             <tbody>
               {users.length === 0 ? (
                 <tr>
@@ -48,15 +41,24 @@ const UsersTable: React.FC = () => {
                   return (
                     <tr key={user.id}>
                       <th>{user.id}</th>
-                      <td>{user.name}</td>
-                      <td>{user.username}</td>
-                      <td>{user.email}</td>
-                      <td>
-                        {`${user.address.street} ${user.address.suite}. ${user.address.city} ${user.address.zipcode} (${user.address.geo.lat}, ${user.address.geo.lng})`}
+                      <td aria-label="Name cell">
+                        <NameCell user={user} />
                       </td>
-                      <td>{user.phone}</td>
-                      <td>{user.website}</td>
-                      <td>{`${user.company?.name} ${user.company?.catchPhrase}. ${user.company?.bs}`} </td>
+                      <td aria-label="Email cell">
+                        <LabelCell label={user.email} />
+                      </td>
+                      <td aria-label="Address cell">
+                        <AddressCell address={user.address} />
+                      </td>
+                      <td aria-label="Phone cell">
+                        <LabelCell label={user.phone} />
+                      </td>
+                      <td aria-label="Website cell">
+                        <LabelCell label={user.website} />
+                      </td>
+                      <td aria-label="Company cell">
+                        <CompanyCell company={user.company} />
+                      </td>
                       <td aria-label="Export row">
                         <button
                           aria-label="Export button"
