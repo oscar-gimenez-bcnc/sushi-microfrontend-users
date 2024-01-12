@@ -1,5 +1,6 @@
 import { mockedUsers } from '../../../__mocks__/users';
-import fetchData from './fetch';
+import { createApiUserRepository } from '../../infrastructure/dataSource/ApiUserRepository';
+import { listUsers } from './listUsers';
 
 beforeAll(() => {
   global.fetch = jest.fn();
@@ -15,7 +16,8 @@ it('recovers data from source', async () => {
     json: () => Promise.resolve(mockedUsers)
   });
   global.fetch = mockFetch;
-  const result = await fetchData({ url: 'https://jsonplaceholder.typicode.com/users' });
+  const userRepository = createApiUserRepository();
+  const result = await listUsers(userRepository)();
 
   expect(result).toEqual(mockedUsers);
 });
@@ -26,7 +28,8 @@ it('throws an error when an exception raises', async () => {
 
   let error;
   try {
-    await fetchData({ url: 'https://jsonplaceholder.typicode.com/users' });
+    const userRepository = createApiUserRepository();
+    await listUsers(userRepository)();
   } catch (e) {
     error = e;
   }
@@ -42,7 +45,8 @@ it('throws an error when the fetch response is not ok', async () => {
 
   let error;
   try {
-    await fetchData({ url: 'https://jsonplaceholder.typicode.com/users' });
+    const userRepository = createApiUserRepository();
+    await listUsers(userRepository)();
   } catch (e) {
     error = e;
   }

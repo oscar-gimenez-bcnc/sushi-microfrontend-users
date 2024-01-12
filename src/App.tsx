@@ -1,6 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import GenericError from './components/GenericError';
-import UsersTable from './components/UsersTable';
+import GenericError from './ui/components/GenericError';
+import UsersTable from './ui/components/UsersTable';
 
 const App = () => {
   return (

@@ -63,7 +63,7 @@ const UsersTable: React.FC = () => {
                       </td>
                       <td>{user.phone}</td>
                       <td>{user.website}</td>
-                      <td>{`${user.company.name} ${user.company.catchPhrase}. ${user.company.bs}`} </td>
+                      <td>{`${user.company?.name} ${user.company?.catchPhrase}. ${user.company?.bs}`} </td>
                     </tr>
                   );
                 })

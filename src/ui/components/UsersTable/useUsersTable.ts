@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { IUser } from '../../domain/entities/IUser';
-import fetchData from '../../domain/api/fetch';
+import { IUser } from '../../../domain/models/IUser';
+import { listUsers } from '../../../application/listUsers/listUsers';
+import { createApiUserRepository } from '../../../infrastructure/dataSource/ApiUserRepository';
 
 const useUsersTable = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -14,7 +15,8 @@ const useUsersTable = () => {
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
       try {
-        const usersFetched = await fetchData({ url: 'https://jsonplaceholder.typicode.com/users' });
+        const userRepository = createApiUserRepository();
+        const usersFetched = await listUsers(userRepository)();
         if (usersFetched) setUsers(usersFetched);
       } catch (err) {
         setUsers([]);
