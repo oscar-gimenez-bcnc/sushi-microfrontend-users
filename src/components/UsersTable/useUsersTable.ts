@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { User } from '../../domain/types/domain';
+import { IUser } from '../../domain/entities/IUser';
 import fetchData from '../../domain/api/fetch';
 
 const useUsersTable = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleOnErrorClick = () => {

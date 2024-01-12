@@ -1,10 +1,10 @@
-import { User } from '../types/domain';
+import { IUser } from '../entities/IUser';
 
 interface FetchDataProps {
   url: string;
 }
 
-const fetchData = async ({ url }: FetchDataProps): Promise<User[] | undefined> => {
+const fetchData = async ({ url }: FetchDataProps): Promise<IUser[] | undefined> => {
   const res = await fetch(url);
 
   if (!res.ok) {
