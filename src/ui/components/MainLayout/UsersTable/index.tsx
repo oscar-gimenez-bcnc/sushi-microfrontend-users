@@ -1,5 +1,4 @@
 import { IUser } from '../../../../domain/models/IUser';
-import IconWarning from '../../shared/icons/IconWarning';
 import AddressCell from './AddressCell';
 import CompanyCell from './CompanyCell';
 import NameCell from './NameCell';
@@ -7,21 +6,15 @@ import TableHead from './TableHead';
 import useUsersTable from './useUsersTable';
 import LabelCell from './LabelCell';
 import DownloadCell from './DownloadCell';
+import ErrorData from './ErrorData';
 
 const UsersTable: React.FC = () => {
   const {
-    actions: { handleOnErrorClick },
     states: { users, errorMessage }
   } = useUsersTable();
 
   return errorMessage ? (
-    <div role="alert" className="alert alert-warning">
-      <IconWarning />
-      <span>{errorMessage}</span>
-      <button type="button" className="btn btn-neutral" onClick={() => handleOnErrorClick()}>
-        Try again
-      </button>
-    </div>
+    <ErrorData />
   ) : (
     <div className="overflow-x-auto">
       <table className="table table-md bg-white">
