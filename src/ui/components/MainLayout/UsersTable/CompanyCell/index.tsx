@@ -1,4 +1,4 @@
-import { ICompany } from '../../../../../domain/models/ICompany';
+import { type ICompany } from '@/domain/models/ICompany';
 
 interface CompanyCellProps {
   company: ICompany;

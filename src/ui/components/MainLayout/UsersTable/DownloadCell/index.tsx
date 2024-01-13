@@ -1,5 +1,5 @@
-import { IUser } from '../../../../../domain/models/IUser';
-import IconDownload from '../../../shared/icons/IconDownload';
+import { type IUser } from '@/domain/models/IUser';
+import IconDownload from '@/ui/components/shared/icons/IconDownload';
 import useDownloadCell from './useDownloadCell';
 
 interface DownloadCellProps {
@@ -16,9 +16,11 @@ const DownloadCell: React.FC<DownloadCellProps> = ({ user }) => {
       aria-label="Download button"
       type="button"
       className="btn btn-ghost btn-xs "
-      onClick={() => handleDownloadClick(user)}
+      onClick={() => {
+        void handleDownloadClick(user);
+      }}
     >
-      <IconDownload />
+      <IconDownload className="h-6 w-6 py-1" />
     </button>
   );
 };

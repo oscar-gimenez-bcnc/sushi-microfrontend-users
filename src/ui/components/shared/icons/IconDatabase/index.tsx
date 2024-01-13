@@ -1,4 +1,6 @@
-const IconDatabase: React.FC = () => {
+import { type IconProps } from '@/ui/helpers/types/types';
+
+const IconDatabase: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +8,7 @@ const IconDatabase: React.FC = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="h-6 w-6"
+      className={className ?? 'h-6 w-6'}
     >
       <path
         strokeLinecap="round"

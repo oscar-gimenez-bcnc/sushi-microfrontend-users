@@ -1,4 +1,4 @@
-import IconWarning from '../../../shared/icons/IconWarning';
+import IconWarning from '@/ui/components/shared/icons/IconWarning';
 import useErrorData from './useErrorData';
 
 const ErrorData: React.FC = () => {

@@ -1,7 +1,7 @@
+import { type IUser } from '@/domain/models/IUser';
+import { createCsvUserDownloader } from '@/infrastructure/dataDownload/CsvUserDownloader';
+import { createJsonUserDownloader } from '@/infrastructure/dataDownload/JsonUserDownloader';
 import { mockedUsers } from '../../../__mocks__/users';
-import { IUser } from '../../domain/models/IUser';
-import { createCsvUserDownloader } from '../../infrastructure/dataDownload/CsvUserDownloader';
-import { createJsonUserDownloader } from '../../infrastructure/dataDownload/JsonUserDownloader';
 
 beforeAll(() => {
   global.fetch = jest.fn();

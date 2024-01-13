@@ -1,5 +1,5 @@
-import { IUser } from '../../domain/models/IUser';
-import { IUserDownloader } from '../../domain/ports/IUserDownloader';
+import { type IUser } from '@/domain/models/IUser';
+import { type IUserDownloader } from '@/domain/ports/IUserDownloader';
 
 export function createCsvUserDownloader(): IUserDownloader {
   const convertUserToCsv = (user: IUser): string => {

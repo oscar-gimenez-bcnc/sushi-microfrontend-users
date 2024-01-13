@@ -1,24 +1,23 @@
 {
-  "extends": ["airbnb-base", "prettier"],
+  "extends": ["standard", "standard-with-typescript", "prettier"],
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "plugins": ["tailwindcss", "simple-import-sort"],
-      "extends": [
-        "plugin:tailwindcss/recommended",
-        "airbnb",
-        "airbnb-typescript",
-        "plugin:prettier/recommended",
-        "plugin:react/jsx-runtime"
-      ],
+      "plugins": ["tailwindcss", "simple-import-sort", "import"],
+      "extends": ["plugin:tailwindcss/recommended", "plugin:prettier/recommended", "plugin:react/jsx-runtime"],
       "parserOptions": {
         "project": "./tsconfig.json"
       },
       "rules": {
-        "react/prop-types": "off",
-        "no-console": "off",
-        "import/prefer-default-export": "off",
-        "react/function-component-definition": "off"
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    },
+    {
+      "files": ["*.test.*"],
+      "plugins": ["jest"],
+      "rules": {
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error"
       }
     }
   ]

@@ -3,7 +3,7 @@ import GenericError from './ui/components/GenericError';
 import MainLayout from './ui/components/MainLayout';
 import { GlobalProvider } from './ui/context/GlobalContext';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="container mx-auto">
       <ErrorBoundary fallback={<GenericError />}>

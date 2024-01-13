@@ -1,5 +1,5 @@
+import { createApiUserRepository } from '@/infrastructure/dataSource/ApiUserRepository';
 import { mockedUsers } from '../../../__mocks__/users';
-import { createApiUserRepository } from '../../infrastructure/dataSource/ApiUserRepository';
 import { listUsers } from './listUsers';
 
 beforeAll(() => {
@@ -13,7 +13,7 @@ afterEach(() => {
 it('should recover data from source', async () => {
   const mockFetch = jest.fn().mockResolvedValue({
     ok: true,
-    json: () => Promise.resolve(mockedUsers)
+    json: async () => await Promise.resolve(mockedUsers)
   });
   global.fetch = mockFetch;
   const userRepository = createApiUserRepository();

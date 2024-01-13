@@ -1,7 +1,8 @@
+import { GlobalContext } from '@/ui/context/GlobalContext';
+import { type IHookResponse } from '@/ui/helpers/types/types';
 import { useContext, useEffect } from 'react';
-import { GlobalContext } from '../../../context/GlobalContext';
 
-const useUsersTable = () => {
+const useUsersTable = (): IHookResponse => {
   const { users, errorMessage } = useContext(GlobalContext);
 
   useEffect(() => {

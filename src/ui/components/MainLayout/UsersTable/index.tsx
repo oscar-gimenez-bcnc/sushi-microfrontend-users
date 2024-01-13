@@ -1,21 +1,19 @@
-import { IUser } from '../../../../domain/models/IUser';
 import AddressCell from './AddressCell';
 import CompanyCell from './CompanyCell';
-import NameCell from './NameCell';
+import NameCell from './UserCell';
 import TableHead from './TableHead';
 import useUsersTable from './useUsersTable';
 import LabelCell from './LabelCell';
 import DownloadCell from './DownloadCell';
 import ErrorData from './ErrorData';
+import { type IUser } from '@/domain/models/IUser';
 
 const UsersTable: React.FC = () => {
   const {
     states: { users, errorMessage }
   } = useUsersTable();
 
-  return errorMessage ? (
-    <ErrorData />
-  ) : (
+  return errorMessage === undefined ? (
     <div className="overflow-x-auto">
       <table className="table table-md bg-white">
         <TableHead />
@@ -59,6 +57,8 @@ const UsersTable: React.FC = () => {
         </tbody>
       </table>
     </div>
+  ) : (
+    <ErrorData />
   );
 };
 

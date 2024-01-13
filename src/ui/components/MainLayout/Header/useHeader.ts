@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { DataSources, DownloadMethods } from '../../../helpers/enums/enums';
-import { GlobalContext } from '../../../context/GlobalContext';
+import { GlobalContext } from '@/ui/context/GlobalContext';
+import { DataSources, DownloadMethods } from '@/ui/helpers/enums/enums';
+import { type IHookResponse } from '@/ui/helpers/types/types';
 
-const useHeader = () => {
+const useHeader = (): IHookResponse => {
   const { dataSource, downloadMethod, setDataSource, setErrorMessage, setDownloadMethod } = useContext(GlobalContext);
 
-  const handleChangeDataSource = () => {
+  const handleChangeDataSource = (): void => {
     setErrorMessage(undefined);
     const nextDataSourceMap: { [key in DataSources]: DataSources } = {
       [DataSources.EXTERNAL]: DataSources.INTERNAL,
@@ -18,7 +19,7 @@ const useHeader = () => {
     setDataSource(nextDataSource);
   };
 
-  const handleChangeDownloadMethod = () => {
+  const handleChangeDownloadMethod = (): void => {
     setDownloadMethod(downloadMethod === DownloadMethods.JSON ? DownloadMethods.CSV : DownloadMethods.JSON);
   };
 

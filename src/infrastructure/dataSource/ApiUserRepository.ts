@@ -1,8 +1,8 @@
-import { IUser } from '../../domain/models/IUser';
-import { IUserRepository } from '../../domain/ports/IUserRepository';
+import { type IUser } from '@/domain/models/IUser';
+import { type IUserRepository } from '@/domain/ports/IUserRepository';
 
 export function createApiUserRepository(): IUserRepository {
-  const cache: Map<number, IUser> = new Map();
+  const cache = new Map<number, IUser>();
 
   async function list(): Promise<IUser[]> {
     const source = 'https://jsonplaceholder.typicode.com/users';

@@ -1,10 +1,10 @@
-import { IUser } from '../../../../../domain/models/IUser';
+import { type IUser } from '@/domain/models/IUser';
 
 interface UserCellProps {
   user: IUser;
 }
 
-const AddressCell: React.FC<UserCellProps> = ({ user }) => {
+const UserCell: React.FC<UserCellProps> = ({ user }) => {
   return (
     <div className="flex items-center gap-3">
       <div>
@@ -15,4 +15,4 @@ const AddressCell: React.FC<UserCellProps> = ({ user }) => {
   );
 };
 
-export default AddressCell;
+export default UserCell;

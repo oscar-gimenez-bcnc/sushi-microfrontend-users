@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import { DataSources, DownloadMethods } from '../helpers/enums/enums';
-import { IUser } from '../../domain/models/IUser';
+import { type IUser } from '../../domain/models/IUser';
 
 interface IGlobalContext {
   dataSource: string;
@@ -35,7 +35,7 @@ const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   const [users, setUsers] = useState<IUser[]>([]);
 
   /*
-TODO: Memoize this
+TODO: Memoize this?
 const contextValue = useMemo(
     () => ({
       dataSource,
@@ -50,8 +50,6 @@ const contextValue = useMemo(
     [dataSource, downloadMethod, users]
   ); */
 
-  // FIXME:
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const contextValue = {
     dataSource,
     setDataSource,

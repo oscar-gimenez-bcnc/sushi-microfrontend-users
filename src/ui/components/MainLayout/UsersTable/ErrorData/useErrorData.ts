@@ -1,16 +1,18 @@
+import { GlobalContext } from '@/ui/context/GlobalContext';
+import { DataSources, DownloadMethods } from '@/ui/helpers/enums/enums';
+import { type IHookResponse } from '@/ui/helpers/types/types';
 import { useContext } from 'react';
-import { GlobalContext } from '../../../../context/GlobalContext';
-import { DataSources, DownloadMethods } from '../../../../helpers/enums/enums';
 
-const useErrorData = () => {
+const useErrorData = (): IHookResponse => {
   const { errorMessage, setUsers, setDataSource, setDownloadMethod, setErrorMessage } = useContext(GlobalContext);
 
-  const handleOnErrorClick = () => {
+  const handleOnErrorClick = (): void => {
     setUsers([]);
     setDataSource(DataSources.EXTERNAL);
     setDownloadMethod(DownloadMethods.JSON);
     setErrorMessage(undefined);
   };
+
   return {
     states: { errorMessage },
     actions: { handleOnErrorClick }

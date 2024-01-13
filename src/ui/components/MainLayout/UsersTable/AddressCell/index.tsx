@@ -1,5 +1,5 @@
-import { IAddress } from '../../../../../domain/models/IAddress';
-import IconArrowTopRightOnSquare from '../../../shared/icons/IconArrowTopRightOnSquare';
+import { type IAddress } from '@/domain/models/IAddress';
+import IconArrowTopRightOnSquare from '@/ui/components/shared/icons/IconArrowTopRightOnSquare';
 
 interface AddressCellProps {
   address: IAddress;

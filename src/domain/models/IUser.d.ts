@@ -1,5 +1,5 @@
-import { IAddress } from './IAddress';
-import { ICompany } from './ICompany';
+import { type IAddress } from './IAddress';
+import { type ICompany } from './ICompany';
 
 export interface IUser {
   id: number;

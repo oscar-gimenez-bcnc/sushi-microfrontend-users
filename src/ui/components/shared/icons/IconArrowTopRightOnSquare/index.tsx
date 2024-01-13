@@ -1,8 +1,6 @@
-interface IconArrowTopRightOnSquareProps {
-  className: string;
-}
+import { type IconProps } from '@/ui/helpers/types/types';
 
-const IconArrowTopRightOnSquare: React.FC<IconArrowTopRightOnSquareProps> = ({ className }) => {
+const IconArrowTopRightOnSquare: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

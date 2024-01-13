@@ -1,5 +1,5 @@
-import { IUser } from '../../domain/models/IUser';
-import { IUserRepository } from '../../domain/ports/IUserRepository';
+import { type IUser } from '@/domain/models/IUser';
+import { type IUserRepository } from '@/domain/ports/IUserRepository';
 
 // This adapter simulates a broken data source
 export function createBrokenRepository(): IUserRepository {
