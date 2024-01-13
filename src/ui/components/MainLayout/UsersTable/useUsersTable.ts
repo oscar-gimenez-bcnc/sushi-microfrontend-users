@@ -7,7 +7,7 @@ const useUsersTable = (): IHookResponse => {
 
   useEffect(() => {
     console.log(`Rendering the table with ${users.length} users`);
-  }, [users]);
+  }, [users, errorMessage]);
 
   return {
     states: { users, errorMessage }
