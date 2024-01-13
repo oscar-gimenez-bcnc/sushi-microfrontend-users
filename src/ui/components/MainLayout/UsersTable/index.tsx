@@ -1,5 +1,4 @@
 import { IUser } from '../../../../domain/models/IUser';
-import IconDownload from '../../shared/icons/IconDownload';
 import IconWarning from '../../shared/icons/IconWarning';
 import AddressCell from './AddressCell';
 import CompanyCell from './CompanyCell';
@@ -7,10 +6,11 @@ import NameCell from './NameCell';
 import TableHead from './TableHead';
 import useUsersTable from './useUsersTable';
 import LabelCell from './LabelCell';
+import DownloadCell from './DownloadCell';
 
 const UsersTable: React.FC = () => {
   const {
-    actions: { handleOnErrorClick, handleDownloadClick },
+    actions: { handleOnErrorClick },
     states: { users, errorMessage }
   } = useUsersTable();
 
@@ -59,15 +59,8 @@ const UsersTable: React.FC = () => {
                       <td aria-label="Company cell">
                         <CompanyCell company={user.company} />
                       </td>
-                      <td aria-label="Export row">
-                        <button
-                          aria-label="Export button"
-                          type="button"
-                          className="btn btn-ghost btn-xs "
-                          onClick={() => handleDownloadClick(user)}
-                        >
-                          <IconDownload />
-                        </button>
+                      <td aria-label="Download row">
+                        <DownloadCell user={user} />
                       </td>
                     </tr>
                   );
