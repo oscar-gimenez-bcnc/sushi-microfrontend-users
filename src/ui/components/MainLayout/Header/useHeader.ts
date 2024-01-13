@@ -4,18 +4,17 @@ import { DataSources, DownloadMethods } from '@/ui/helpers/enums/enums';
 import { type IHookResponse } from '@/ui/helpers/types/types';
 
 const useHeader = (): IHookResponse => {
-  const { dataSource, downloadMethod, setDataSource, setErrorMessage, setDownloadMethod } = useContext(GlobalContext);
+  const { dataSource, downloadMethod, setDataSource, setDownloadMethod } = useContext(GlobalContext);
 
   const handleChangeDataSource = (): void => {
-    setErrorMessage(undefined);
     const nextDataSourceMap: { [key in DataSources]: DataSources } = {
       [DataSources.EXTERNAL]: DataSources.INTERNAL,
-      [DataSources.INTERNAL]: DataSources.BROKEN,
+      [DataSources.INTERNAL]: DataSources.EMPTY,
+      [DataSources.EMPTY]: DataSources.BROKEN,
       [DataSources.BROKEN]: DataSources.EXTERNAL
     };
 
     const nextDataSource = nextDataSourceMap[dataSource as DataSources];
-
     setDataSource(nextDataSource);
   };
 

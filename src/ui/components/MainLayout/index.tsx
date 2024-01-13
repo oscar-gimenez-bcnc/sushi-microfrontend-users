@@ -1,15 +1,15 @@
 import Header from './Header';
 import UsersTable from './UsersTable';
-import useMainLayout from './useMainLayout';
+import { UsersTableProvider } from './UsersTable/UsersTableContext';
 
 const MainLayout: React.FC = () => {
-  useMainLayout();
-
   return (
     <div className="container mx-auto py-4">
       <Header />
       <div className="divider divider-primary" />
-      <UsersTable />
+      <UsersTableProvider>
+        <UsersTable />
+      </UsersTableProvider>
     </div>
   );
 };

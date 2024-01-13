@@ -1,9 +1,9 @@
-import { GlobalContext } from '@/ui/context/GlobalContext';
 import { type IHookResponse } from '@/ui/helpers/types/types';
 import { useContext } from 'react';
+import { UsersTableContext } from '../UsersTableContext';
 
 const useErrorData = (): IHookResponse => {
-  const { errorMessage, setErrorMessage } = useContext(GlobalContext);
+  const { errorMessage, setErrorMessage } = useContext(UsersTableContext);
 
   const handleOnErrorClick = (): void => {
     setErrorMessage(undefined);
