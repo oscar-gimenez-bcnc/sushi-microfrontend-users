@@ -1,5 +1,6 @@
 import { type IUser } from '@/domain/models/IUser';
 import { type IUserDownloader } from '@/domain/ports/IUserDownloader';
+import { type DownloadFileProps, downloadFile } from './helper';
 
 export function createCsvUserDownloader(): IUserDownloader {
   const convertUserToCsv = (user: IUser): string => {
@@ -29,15 +30,8 @@ export function createCsvUserDownloader(): IUserDownloader {
 
   const download = async (user: IUser): Promise<void> => {
     const csvContent = convertUserToCsv(user);
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.setAttribute('download', `user_${user.id}.csv`);
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+    const options: DownloadFileProps = { id: user.id, content: csvContent, extension: 'csv' };
+    await downloadFile(options);
   };
 
   return { download };

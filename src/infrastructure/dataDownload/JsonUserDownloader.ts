@@ -1,18 +1,17 @@
 import { type IUser } from '@/domain/models/IUser';
 import { type IUserDownloader } from '@/domain/ports/IUserDownloader';
+import { type DownloadFileProps, downloadFile } from './helper';
 
 export function createJsonUserDownloader(): IUserDownloader {
-  async function download(user: IUser): Promise<void> {
+  const convertUserToJson = (user: IUser): string => {
     const jsonContent = JSON.stringify(user, null, 2);
-    const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
+    return jsonContent;
+  };
 
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.setAttribute('download', `user_${user.id}.json`);
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+  async function download(user: IUser): Promise<void> {
+    const jsonContent = convertUserToJson(user);
+    const options: DownloadFileProps = { id: user.id, content: jsonContent, extension: 'json' };
+    await downloadFile(options);
   }
 
   return { download };
