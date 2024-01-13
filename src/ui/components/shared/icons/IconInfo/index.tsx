@@ -1,4 +1,4 @@
-import { type IconProps } from '@/ui/helpers/types/types';
+import { type IconProps } from '@/ui/shared/types/types';
 
 const IconInfo: React.FC<IconProps> = ({ className }) => {
   return (

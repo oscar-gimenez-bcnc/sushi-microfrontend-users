@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { DataSources, DownloadMethods } from '../helpers/enums/enums';
+import { DataSources, DownloadMethods } from '../shared/enums/enums';
 
 interface IGlobalContext {
   dataSource: string;

@@ -1,5 +1,5 @@
 import { GlobalContext } from '@/ui/context/GlobalContext';
-import { type IHookResponse } from '@/ui/helpers/types/types';
+import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext, useEffect } from 'react';
 import { UsersTableContext } from './context/UsersTableContext';
 import { listUsers } from '@/application/listUsers/listUsers';
@@ -8,7 +8,7 @@ import { createApiUserRepository } from '@/infrastructure/dataSource/ApiUserRepo
 import { createBrokenRepository } from '@/infrastructure/dataSource/BrokenRepository';
 import { createEmptyUserRepository } from '@/infrastructure/dataSource/EmptyRepository';
 import { createHardcodedUserRepository } from '@/infrastructure/dataSource/HardcodedUserRepository';
-import { DataSources } from '@/ui/helpers/enums/enums';
+import { DataSources } from '@/ui/shared/enums/enums';
 
 const useUsersTable = (): IHookResponse => {
   const { dataSource } = useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from '@/ui/context/GlobalContext';
-import { DataSources, DownloadMethods } from '@/ui/helpers/enums/enums';
-import { type IHookResponse } from '@/ui/helpers/types/types';
+import { DataSources, DownloadMethods } from '@/ui/shared/enums/enums';
+import { type IHookResponse } from '@/ui/shared/types/types';
 
 const useHeader = (): IHookResponse => {
   const { dataSource, downloadMethod, setDataSource, setDownloadMethod } = useContext(GlobalContext);

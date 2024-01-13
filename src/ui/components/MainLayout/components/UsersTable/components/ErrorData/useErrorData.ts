@@ -1,4 +1,4 @@
-import { type IHookResponse } from '@/ui/helpers/types/types';
+import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext } from 'react';
 import { UsersTableContext } from '../../context/UsersTableContext';
 

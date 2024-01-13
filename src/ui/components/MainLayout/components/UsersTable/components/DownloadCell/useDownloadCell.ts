@@ -3,8 +3,8 @@ import { type IUser } from '@/domain/models/IUser';
 import { createCsvUserDownloader } from '@/infrastructure/dataDownload/CsvUserDownloader';
 import { createJsonUserDownloader } from '@/infrastructure/dataDownload/JsonUserDownloader';
 import { GlobalContext } from '@/ui/context/GlobalContext';
-import { DownloadMethods } from '@/ui/helpers/enums/enums';
-import { type IHookResponse } from '@/ui/helpers/types/types';
+import { DownloadMethods } from '@/ui/shared/enums/enums';
+import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext } from 'react';
 
 const useDownloadCell = (): IHookResponse => {
