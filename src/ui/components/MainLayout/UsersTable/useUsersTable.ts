@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react';
 import { downloadUser } from '../../../../application/downloadUser/downloadUser';
 import { IUser } from '../../../../domain/models/IUser';
-import { createCsvUserDownloader } from '../../../../infrastructure/dataExport/CsvUserExporter';
-import { createJsonUserDownloader } from '../../../../infrastructure/dataExport/JsonUserExporter';
+import { createCsvUserDownloader } from '../../../../infrastructure/dataDownload/CsvUserDownloader';
+import { createJsonUserDownloader } from '../../../../infrastructure/dataDownload/JsonUserDownloader';
 import { GlobalContext } from '../../../context/GlobalContext';
 import { DataSources, DownloadMethods } from '../../../helpers/enums/enums';
 
