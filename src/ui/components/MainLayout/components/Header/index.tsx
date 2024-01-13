@@ -1,5 +1,5 @@
-import IconDatabase from '../../shared/icons/IconDatabase';
-import IconDocument from '../../shared/icons/IconDocument';
+import IconDatabase from '../../../shared/icons/IconDatabase';
+import IconDocument from '../../../shared/icons/IconDocument';
 import useHeader from './useHeader';
 
 const Header: React.FC = () => {
