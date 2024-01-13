@@ -1,6 +1,6 @@
+import { type IUser } from '@/domain/models/IUser';
 import { createContext, useState } from 'react';
 import { DataSources, DownloadMethods } from '../helpers/enums/enums';
-import { type IUser } from '../../domain/models/IUser';
 
 interface IGlobalContext {
   dataSource: string;
