@@ -8,6 +8,7 @@ const MainLayout: React.FC = () => {
   return (
     <div className="container mx-auto py-4">
       <Header />
+      <div className="divider divider-primary" />
       <UsersTable />
     </div>
   );

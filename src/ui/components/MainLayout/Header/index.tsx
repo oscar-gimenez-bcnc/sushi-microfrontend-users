@@ -18,7 +18,12 @@ const Header: React.FC = () => {
             <IconDocument />
           </span>
         </h5>
-        <button type="button" className="btn btn-accent btn-xs " onClick={() => handleChangeDownloadMethod()}>
+        <button
+          aria-label="Change download method"
+          type="button"
+          className="btn btn-primary btn-xs "
+          onClick={() => handleChangeDownloadMethod()}
+        >
           Change Download Method
         </button>
         <h5 className="flex flex-row items-center gap-2 text-sm">
@@ -27,7 +32,7 @@ const Header: React.FC = () => {
             <IconDatabase />
           </span>
         </h5>
-        <button type="button" className="btn btn-accent btn-xs " onClick={() => handleChangeDataSource()}>
+        <button type="button" className="btn btn-primary btn-xs " onClick={() => handleChangeDataSource()}>
           Change Data source
         </button>
       </div>

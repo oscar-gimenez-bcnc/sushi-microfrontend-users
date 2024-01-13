@@ -3,12 +3,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montaga']
+        sans: ['Roboto']
       }
     }
   },
   daisyui: {
-    themes: ['cupcake']
+    themes: ['light']
   },
   plugins: [require('daisyui')]
 };
