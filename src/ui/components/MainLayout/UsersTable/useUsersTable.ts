@@ -1,7 +1,7 @@
 import { GlobalContext } from '@/ui/context/GlobalContext';
 import { type IHookResponse } from '@/ui/helpers/types/types';
 import { useContext, useEffect } from 'react';
-import { UsersTableContext } from './UsersTableContext';
+import { UsersTableContext } from './context/UsersTableContext';
 import { listUsers } from '@/application/listUsers/listUsers';
 import { type IUserRepository } from '@/domain/ports/IUserRepository';
 import { createApiUserRepository } from '@/infrastructure/dataSource/ApiUserRepository';

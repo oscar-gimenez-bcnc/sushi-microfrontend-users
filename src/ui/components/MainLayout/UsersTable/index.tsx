@@ -1,14 +1,14 @@
-import AddressCell from './AddressCell';
-import CompanyCell from './CompanyCell';
-import NameCell from './UserCell';
-import TableHead from './TableHead';
+import AddressCell from './components/AddressCell';
+import CompanyCell from './components/CompanyCell';
+import NameCell from './components/UserCell';
+import TableHead from './components/TableHead';
 import useUsersTable from './useUsersTable';
-import LabelCell from './LabelCell';
-import DownloadCell from './DownloadCell';
-import ErrorData from './ErrorData';
+import LabelCell from './components/LabelCell';
+import DownloadCell from './components/DownloadCell';
+import ErrorData from './components/ErrorData';
 import { type IUser } from '@/domain/models/IUser';
-import EmptyData from './EmptyData';
-import Loader from './Loader';
+import EmptyData from './components/EmptyData';
+import Loader from './components/Loader';
 
 const UsersTable: React.FC = () => {
   const {

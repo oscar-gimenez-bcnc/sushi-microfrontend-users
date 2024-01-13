@@ -1,6 +1,6 @@
 import { type IHookResponse } from '@/ui/helpers/types/types';
 import { useContext } from 'react';
-import { UsersTableContext } from '../UsersTableContext';
+import { UsersTableContext } from '../../context/UsersTableContext';
 
 const useErrorData = (): IHookResponse => {
   const { errorMessage, setErrorMessage } = useContext(UsersTableContext);
