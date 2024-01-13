@@ -10,7 +10,7 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-it('recovers data from source', async () => {
+it('should recover data from source', async () => {
   const mockFetch = jest.fn().mockResolvedValue({
     ok: true,
     json: () => Promise.resolve(mockedUsers)
@@ -22,7 +22,7 @@ it('recovers data from source', async () => {
   expect(result).toEqual(mockedUsers);
 });
 
-it('throws an error when an exception raises', async () => {
+it('should throw an error when an exception raises', async () => {
   const mockFetch = jest.fn().mockRejectedValue(new Error('(Test) Error fetching data'));
   global.fetch = mockFetch;
 
@@ -37,7 +37,7 @@ it('throws an error when an exception raises', async () => {
   expect(error).toBeDefined();
 });
 
-it('throws an error when the fetch response is not ok', async () => {
+it('should throw an error when the fetch response is not ok', async () => {
   const mockFetch = jest.fn().mockResolvedValue({
     ok: false
   });
