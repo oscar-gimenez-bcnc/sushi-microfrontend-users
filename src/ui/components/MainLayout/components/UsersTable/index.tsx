@@ -27,7 +27,9 @@ const UsersTable: React.FC = () => {
           ) : (
             users.map((user: IUser) => (
               <tr key={user.id}>
-                <th>{user.id}</th>
+                <th>
+                  <LabelCell label={user.id.toString()} />
+                </th>
                 <td aria-label="Name cell">
                   <NameCell user={user} />
                 </td>
