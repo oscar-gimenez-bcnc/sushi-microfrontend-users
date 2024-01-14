@@ -18,7 +18,6 @@ const useUsersTable = (): IHookResponse => {
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
       setErrorMessage(undefined);
-      setIsLoading(true);
 
       try {
         const userRepositoryMap: { [key in DataSources]: () => IUserRepository } = {

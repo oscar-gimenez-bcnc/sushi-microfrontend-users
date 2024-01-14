@@ -11,7 +11,7 @@ interface IUsersTableContext {
 }
 
 const UsersTableContext = createContext<IUsersTableContext>({
-  isLoading: false,
+  isLoading: true,
   setIsLoading: () => {},
   errorMessage: undefined,
   setErrorMessage: () => {},
@@ -24,7 +24,7 @@ interface UsersTableProviderProps {
 }
 
 const UsersTableProvider: React.FC<UsersTableProviderProps> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
   const [users, setUsers] = useState<IUser[]>([]);
 
