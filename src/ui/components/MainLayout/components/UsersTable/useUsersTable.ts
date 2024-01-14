@@ -9,18 +9,23 @@ import { createBrokenRepository } from '@/infrastructure/dataSource/BrokenReposi
 import { createEmptyUserRepository } from '@/infrastructure/dataSource/EmptyRepository';
 import { createHardcodedUserRepository } from '@/infrastructure/dataSource/HardcodedUserRepository';
 import { DataSources } from '@/ui/shared/enums/enums';
+import { createApiUserWithCacheRepository } from '@/infrastructure/dataSource/ApiUserWithCacheRepository';
 
 const useUsersTable = (): IHookResponse => {
-  const { dataSource } = useContext(GlobalContext);
+  const { dataSource, isCacheEnabled, cacheActions } = useContext(GlobalContext);
   const { isLoading, users, errorMessage, setErrorMessage, setUsers, setIsLoading } = useContext(UsersTableContext);
 
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
       setErrorMessage(undefined);
       setIsLoading(true);
+
       try {
         const userRepositoryMap: { [key in DataSources]: () => IUserRepository } = {
-          [DataSources.EXTERNAL]: createApiUserRepository,
+          [DataSources.EXTERNAL]:
+            isCacheEnabled && cacheActions !== undefined
+              ? () => createApiUserWithCacheRepository({ cacheActions })
+              : createApiUserRepository,
           [DataSources.INTERNAL]: createHardcodedUserRepository,
           [DataSources.EMPTY]: createEmptyUserRepository,
           [DataSources.BROKEN]: createBrokenRepository
