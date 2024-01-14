@@ -2,7 +2,7 @@ import { downloadUser } from '@/application/downloadUser/downloadUser';
 import { type IUser } from '@/domain/models/IUser';
 import { createCsvUserDownloader } from '@/infrastructure/dataDownload/CsvUserDownloader';
 import { createJsonUserDownloader } from '@/infrastructure/dataDownload/JsonUserDownloader';
-import { GlobalContext } from '@/ui/context/GlobalContext';
+import { GlobalContext } from '@/ui/contexts/GlobalContext';
 import { DownloadMethods } from '@/ui/shared/enums/enums';
 import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext } from 'react';

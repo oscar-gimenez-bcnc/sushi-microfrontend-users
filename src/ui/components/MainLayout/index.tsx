@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import UsersTable from './components/UsersTable';
-import { UsersTableProvider } from './components/UsersTable/context/UsersTableContext';
+import { UsersTableProvider } from './components/UsersTable/contexts/UsersTableContext';
 
 const MainLayout: React.FC = () => {
   return (
