@@ -1,8 +1,8 @@
 import { type IUser } from '@/domain/models/IUser';
 import { type IUserRepository } from '@/domain/ports/IUserRepository';
 
-export function createHardcodedUserRepository(): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export const createHardcodedUserRepository = (): IUserRepository => {
+  const list = async (): Promise<IUser[]> => {
     return [
       {
         id: 1,
@@ -51,7 +51,7 @@ export function createHardcodedUserRepository(): IUserRepository {
         }
       }
     ];
-  }
+  };
 
   return { list };
-}
+};

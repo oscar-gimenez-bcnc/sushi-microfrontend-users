@@ -1,8 +1,8 @@
 import { type IUser } from '@/domain/models/IUser';
 import { type IUserRepository } from '@/domain/ports/IUserRepository';
 
-export function createApiUserRepository(): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export const createApiUserRepository = (): IUserRepository => {
+  const list = async (): Promise<IUser[]> => {
     const source = 'https://jsonplaceholder.typicode.com/users';
 
     const res = await fetch(source);
@@ -13,7 +13,7 @@ export function createApiUserRepository(): IUserRepository {
     const users = await res.json();
 
     return users;
-  }
+  };
 
   return { list };
-}
+};

@@ -2,7 +2,7 @@ import { type IUser } from '@/domain/models/IUser';
 import { type IUserDownloader } from '@/domain/ports/IUserDownloader';
 import { type DownloadFileProps, downloadFile } from './helper';
 
-export function createCsvUserDownloader(): IUserDownloader {
+export const createCsvUserDownloader = (): IUserDownloader => {
   const convertUserToCsv = (user: IUser): string => {
     const headers = 'ID,Name,Username,Email,Street,Suite,City,Zipcode,Lat,Lng,Phone,Website,CompanyName,CatchPhrase,Bs';
     const row = [
@@ -35,4 +35,4 @@ export function createCsvUserDownloader(): IUserDownloader {
   };
 
   return { download };
-}
+};

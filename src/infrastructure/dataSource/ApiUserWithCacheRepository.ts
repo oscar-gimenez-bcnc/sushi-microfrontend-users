@@ -5,8 +5,8 @@ interface createApiUserRepositoryProps {
   cacheActions: ICacheActions;
 }
 
-export function createApiUserWithCacheRepository({ cacheActions }: createApiUserRepositoryProps): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export const createApiUserWithCacheRepository = ({ cacheActions }: createApiUserRepositoryProps): IUserRepository => {
+  const list = async (): Promise<IUser[]> => {
     const cache = cacheActions.getUsersCacheData();
 
     if (cache !== undefined) {
@@ -39,7 +39,7 @@ export function createApiUserWithCacheRepository({ cacheActions }: createApiUser
     });
 
     return users;
-  }
+  };
 
   return { list };
-}
+};
