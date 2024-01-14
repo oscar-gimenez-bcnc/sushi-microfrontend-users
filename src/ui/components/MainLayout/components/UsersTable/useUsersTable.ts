@@ -17,6 +17,7 @@ const useUsersTable = (): IHookResponse => {
 
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
+      setIsLoading(true);
       setErrorMessage(undefined);
 
       try {
