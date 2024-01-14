@@ -9,9 +9,9 @@ const CompanyCell: React.FC<CompanyCellProps> = ({ company }) => {
 
   return (
     <>
-      <span>{company.name}.</span> <span>{capitalizedBS}</span>
+      <span className="font-bold">{company.name}.</span> <span>{capitalizedBS}</span>
       <br />
-      <span className="badge badge-ghost badge-sm">{company.catchPhrase}</span>
+      <span className="text-xs italic">{company.catchPhrase}</span>
     </>
   );
 };
