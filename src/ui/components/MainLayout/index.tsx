@@ -1,6 +1,6 @@
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
-import UsersTable from './components/UsersTable';
-import { UsersTableProvider } from './components/UsersTable/contexts/UsersTableContext';
+import { UsersTableProvider } from '../../modules/UsersTable/contexts/UsersTableContext';
 
 const MainLayout: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const MainLayout: React.FC = () => {
       <Header />
       <div className="divider divider-primary" />
       <UsersTableProvider>
-        <UsersTable />
+        <Outlet />
       </UsersTableProvider>
     </div>
   );

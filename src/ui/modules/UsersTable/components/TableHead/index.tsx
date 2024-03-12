@@ -10,6 +10,7 @@ const TableHead: React.FC = () => {
         <th>Website</th>
         <th>Company</th>
         <th aria-label="Table head download button" />
+        <th aria-label="Table head detail button" />
       </tr>
     </thead>
   );

@@ -48,8 +48,15 @@ const UsersTable: React.FC = () => {
                 <td aria-label="Company cell">
                   <CompanyCell company={user.company} />
                 </td>
-                <td aria-label="Download row">
+                <td aria-label="Download cell">
                   <DownloadCell user={user} />
+                </td>
+                <td aria-label="Detail cell">
+                  <a href={`/${user.id}`}>
+                    <button type="button" className="btn btn-neutral">
+                      View detail
+                    </button>
+                  </a>
                 </td>
               </tr>
             ))
