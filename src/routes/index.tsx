@@ -4,7 +4,16 @@ import MainLayout from '@/ui/components/MainLayout';
 import UsersTable from '@/ui/modules/UsersTable';
 import DetailPage from '@/ui/modules/DetailPage';
 
-const router = createBrowserRouter(
+const routerMicrofrontend = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<MainLayout />}>
+      <Route path="/users/" element={<UsersTable />} />
+      <Route path="/users/:id" element={<DetailPage />} />
+    </Route>
+  )
+);
+
+const routerStandalone = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainLayout />}>
       <Route path="/" element={<UsersTable />} />
@@ -13,8 +22,12 @@ const router = createBrowserRouter(
   )
 );
 
-const AppRouter: React.FC = () => {
-  return <RouterProvider router={router} />;
+interface AppRouterProps {
+  userId?: string;
+  isMicrofrontend: boolean;
+}
+const AppRouter: React.FC<AppRouterProps> = ({ userId, isMicrofrontend }) => {
+  return <RouterProvider router={isMicrofrontend ? routerMicrofrontend : routerStandalone} />;
 };
 
 export default AppRouter;
