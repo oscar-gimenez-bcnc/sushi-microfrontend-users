@@ -8,7 +8,7 @@ const SushiMicroFrontendDetail = React.lazy(
 const DetailPage: React.FC = () => {
   return (
     <Suspense fallback={<MicroFrontendLoader />}>
-      <SushiMicroFrontendDetail />
+      <SushiMicroFrontendDetail isMicrofrontend={true} />
     </Suspense>
   );
 };

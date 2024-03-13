@@ -59,6 +59,14 @@ module.exports = {
         './SushiMicroFrontendUsers': './src/App.tsx'
       },
       shared: {
+        react: {
+          singleton: true,
+          requiredVersion: dependencies.react
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: dependencies['react-dom']
+        },
         'react-error-boundary': {
           singleton: true,
           requiredVersion: dependencies['react-error-boundary']
