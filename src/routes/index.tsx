@@ -17,7 +17,7 @@ const routerStandalone = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainLayout />}>
       <Route path="/" element={<UsersTable />} />
-      <Route path="/:id" element={<DetailPage />} />
+      <Route path="/users/:id" element={<DetailPage />} />
     </Route>
   )
 );
@@ -26,7 +26,7 @@ interface AppRouterProps {
   userId?: string;
   isMicrofrontend: boolean;
 }
-const AppRouter: React.FC<AppRouterProps> = ({ userId, isMicrofrontend }) => {
+const AppRouter: React.FC<AppRouterProps> = ({ isMicrofrontend }) => {
   return <RouterProvider router={isMicrofrontend ? routerMicrofrontend : routerStandalone} />;
 };
 

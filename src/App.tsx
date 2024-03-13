@@ -6,7 +6,6 @@ import AppRouter from './routes';
 
 interface AppProps {
   cacheActions?: ICacheActions;
-  userId?: string;
 }
 
 const App: React.FC<AppProps> = (props: AppProps) => {
@@ -15,7 +14,7 @@ const App: React.FC<AppProps> = (props: AppProps) => {
     <div className="container mx-auto">
       <ErrorBoundary fallback={<GenericError />}>
         <GlobalProvider isCacheEnabled={isMicrofrontend} cacheActions={props.cacheActions}>
-          <AppRouter isMicrofrontend={isMicrofrontend} userId={props.userId} />
+          <AppRouter isMicrofrontend={isMicrofrontend} />
         </GlobalProvider>
       </ErrorBoundary>
     </div>

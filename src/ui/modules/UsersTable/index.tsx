@@ -9,6 +9,7 @@ import ErrorData from './components/ErrorData';
 import { type IUser } from '@/domain/models/IUser';
 import EmptyData from './components/EmptyData';
 import Loader from './components/Loader';
+import { Link } from 'react-router-dom';
 
 const UsersTable: React.FC = () => {
   const {
@@ -52,11 +53,11 @@ const UsersTable: React.FC = () => {
                   <DownloadCell user={user} />
                 </td>
                 <td aria-label="Detail cell">
-                  <a href={`/${user.id}`}>
+                  <Link to={`/users/${user.id}`}>
                     <button type="button" className="btn btn-neutral">
                       View detail
                     </button>
-                  </a>
+                  </Link>
                 </td>
               </tr>
             ))
